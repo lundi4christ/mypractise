@@ -21,10 +21,17 @@ public class looping {
         emp2.setAge(30);
         emp2.setEmail("luke@gmail.com");
 
+        employee emp3 = new employee();
+        emp3.setFirstname("Tony");
+        emp3.setLastname("John");
+        emp3.setAge(25);
+        emp3.setEmail("tony@gmail.com");
+
         List<employee> empout = new ArrayList<>();
 
         empout.add(emp1);
         empout.add(emp2);
+        empout.add(emp3);
 
 
         ObjectMapper mapper = new ObjectMapper();
