@@ -1,6 +1,7 @@
 package collprac;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import jsonBindings3.Dclient;
 import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
@@ -24,6 +25,16 @@ public class mypractise {
 
        ObjectMapper mapper = new ObjectMapper();
        String strs = "{\n \"postings\": [\n{\n\"UC\":\"OD246\", \n\"CI\":\"OD248\",\n\"CC\":\"OD297\", \n\"CM\":\"OD249\" \n},\n{\n\"UC\":\"OD246\", \n\"CI\":\"OD298\",\n\"CC\":\"OD297\", \n\"CM\":\"OD249\" \n},\n\t{\n\"UC\":\"OD236\", \n\"CI\":\"OD228\",\n\"CC\":\"OD217\", \n\"CM\":\"OD299\" \n}\n\t]\n};";
+       String strss = "{\"responseCode\": 49,\"responseMessage\": \"The withdrawal amount cannot exceed the account balance.[  M145963/   2]\",\"transId\": null,\"transDate\": null,\"errorList\": [\"The withdrawal amount cannot exceed the account balance.[  M145963/   2]\",\"Scheme Updates Failed[  M145963/   2]\"]}";
+       Map<String, Object> request = new Gson().fromJson(strss, Map.class);
+
+       List<Map<String, Object>> ss = (List<Map<String, Object>>) request.get("errorList");
+
+       String j = ss.toString();
+
+       String responmsg = (String) request.get("responseMessage");
+
+       System.out.println("uuuuuuuuuuuuuuu : " + responmsg + "-" + j);
        try {
            JSONObject jstring = new JSONObject(json);
            //JSONObject lang = jstring.getJSONObject("languages");
