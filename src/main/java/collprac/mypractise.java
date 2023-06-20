@@ -19,7 +19,7 @@ public class mypractise {
 
    public static void main (String[] args) throws IOException {
 
-       String file = "D:\\monday-files\\jsonfile3.json";
+       String file = "D:\\monday-files\\jsonfile2.json";
        String json = readFileAsString(file);
        System.out.println(json);
 
@@ -30,13 +30,20 @@ public class mypractise {
 
        List<Map<String, Object>> ss = (List<Map<String, Object>>) request.get("errorList");
 
+       //////////////////////////////
+       ///JSONObject jsonob = new JSONObject(json);
+
+
+       /////////////////////////////
+
        String j = ss.toString();
 
        String responmsg = (String) request.get("responseMessage");
-
        System.out.println("uuuuuuuuuuuuuuu : " + responmsg + "-" + j);
        try {
            JSONObject jstring = new JSONObject(json);
+           String acct = jstring.getString("accountNo");
+           System.out.println("wwwwwwwwwwwwwwwwwwwwwwwwww " + acct);
            //JSONObject lang = jstring.getJSONObject("languages");
            JSONArray jarray = jstring.getJSONArray("languages");
 
