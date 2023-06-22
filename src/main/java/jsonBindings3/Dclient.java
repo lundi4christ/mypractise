@@ -9,5 +9,5 @@ public class Dclient {
     //private String cId;
     private String cCodes;
     //private String city;
-    //private String location;
+    private String location;
 }
