@@ -33,7 +33,6 @@ public class looping {
         empout.add(emp2);
         empout.add(emp3);
 
-
         ObjectMapper mapper = new ObjectMapper();
 
         try {
