@@ -1,10 +1,12 @@
 package collprac;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.Data;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Data
 @JacksonXmlRootElement(localName = "UserMsg")
 public class UserMsg {
     @JacksonXmlProperty(localName = "UserName")
