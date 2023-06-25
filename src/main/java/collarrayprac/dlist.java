@@ -59,6 +59,11 @@ public class dlist {
         Map<String, Object> map = new HashMap<>();
         map.put("jane", "jerry");
         map.put("mark", "mary");
+        map.put("luke", "lucy");
+
+        if(map.containsKey("jane")){
+            System.out.println(map.entrySet());
+        }
 
     }
 }
