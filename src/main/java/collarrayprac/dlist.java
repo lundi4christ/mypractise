@@ -3,9 +3,7 @@ package collarrayprac;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class dlist {
@@ -22,6 +20,22 @@ public class dlist {
         Collections.sort(str);
 
         System.out.println(str);
+
+        for(String strs : str){
+
+            System.out.println("rrrrrrrrrrrrrrrrr" +strs);
+        }
+
+        Iterator iter = str.listIterator();
+
+        while(iter.hasNext()){
+
+            String dstr = (String) iter.next();
+
+            if(dstr.contains("s")){
+                System.out.println("aaaaa aaaa " + dstr);
+            }
+        }
 
         List<employee> emplist = new ArrayList<>();
         employee emp2 = new employee();
@@ -40,5 +54,11 @@ public class dlist {
        ss.forEach(System.out::println);
       // System.out.println(ss);
       // List<String> sss = str.stream().filter(a -> a.contains("k")).forEach(System.out::println);
+
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("jane", "jerry");
+        map.put("mark", "mary");
+
     }
 }
