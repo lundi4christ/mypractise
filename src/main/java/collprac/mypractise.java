@@ -33,9 +33,6 @@ public class mypractise {
        //////////////////////////////
        ///JSONObject jsonob = new JSONObject(json);
 
-
-       /////////////////////////////
-
        String j = ss.toString();
 
        String responmsg = (String) request.get("responseMessage");
