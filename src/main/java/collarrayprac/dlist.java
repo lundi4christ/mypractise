@@ -101,14 +101,11 @@ public class dlist {
 
                     // Print the list of maps
                     for (Map<String, Object> maps : list) {
-                        System.out.println(map);
+                        System.out.println("=======uuuu " + map);
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
-
     }
 }
