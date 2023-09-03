@@ -1,5 +1,8 @@
 package collprac;
 
+import collarrayprac.Assessment;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import jsonBindings3.Dclient;
@@ -18,6 +21,33 @@ import java.util.stream.Collectors;
 public class mypractise {
 
    public static void main (String[] args) throws IOException {
+
+       String jsonData = "[{ASSESSMENTID=1855182, TAXID=1855333, ASSTYPE=MANUAL_DUTY, ASSNO=627733, ASSYEAR=2023, ASSSTATUS=Activated, COMPANYNAME=CHEKOR BLESSING ENERI, NCSPAID=1, ASSSERIAL=M, AMOUNT=15000, TAXCODE=FEE, NARRATION=FEES | OTHER/SUNDRY FEES, REFERENCE=MANCSD23159, CBNACCOUNT=3000008059, CUSTOMERACCOUNT=6980542003, CUSTOMERNAME=Walk in Customer, TSANAME=0220011001000-C0039-P00417, TSACODE=FEE, ITEMCODE=C0039, NDCC=0, NDCCAMT=0, TSAREFERENCE=FIB02070000001855333, PORTCODE=01TC, PORTNAME=TINCAN, NOTIFY=1}, {ASSESSMENTID=1888030, TAXID=1888993, ASSTYPE=MANUAL_DUTY, ASSNO=627729, ASSYEAR=2023, ASSSTATUS=Activated, COMPANYNAME=NICHOLAS OLUCHUKWU NJOKU, NCSPAID=1, ASSSERIAL=M, AMOUNT=15000, TAXCODE=FEE, NARRATION=FEES | OTHER/SUNDRY FEES, REFERENCE=MANCSD23174, CBNACCOUNT=3000008059, CUSTOMERACCOUNT=6011897766, CUSTOMERNAME=Walk in Customer, TSANAME=0220011001000-C0039-P00417, TSACODE=FEE, ITEMCODE=C0039, NDCC=0, NDCCAMT=0, TSAREFERENCE=FIB02070000001888993, PORTCODE=01AP, PORTNAME=APAPA, NOTIFY=1}]";
+
+       ObjectMapper objectMapper = new ObjectMapper();
+       try {
+           JsonNode jsonNode = objectMapper.readTree(jsonData);
+
+           for (JsonNode node : jsonNode) {
+               long assessmentId = node.get("ASSESSMENTID").asLong();
+               System.out.println("ASSESSMENTID: " + assessmentId);
+           }
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+
+       String splitref = "MANUAL DTYCSD23024";
+       if (splitref.contains("")) {
+         //  System.out.println(splitref.substring(6, 18));
+           String[] splitnarr = splitref.split("\\ ");
+           System.out.println("=======" + splitnarr[1]);
+           splitnarr[1].replaceAll("\\s", "");
+           System.out.println(splitnarr[1].replaceAll("\\s", ""));
+       } else {
+           System.out.println("does not existS");
+
+       }
+
 
        String file = "D:\\monday-files\\jsonfile2.json";
        String json = readFileAsString(file);
