@@ -69,8 +69,8 @@ public class mypractise {
        System.out.println("uuuuuuuuuuuuuuu : " + responmsg + "-" + j);
        try {
            JSONObject jstring = new JSONObject(json);
-           String acct = jstring.getString("accountNo");
-           System.out.println("wwwwwwwwwwwwwwwwwwwwwwwwww " + acct);
+           /*String acct = jstring.getString("accountNo");
+           System.out.println("wwwwwwwwwwwwwwwwwwwwwwwwww " + acct);*/
            //JSONObject lang = jstring.getJSONObject("languages");
            JSONArray jarray = jstring.getJSONArray("languages");
 
