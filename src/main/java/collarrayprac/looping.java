@@ -9,6 +9,7 @@ import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -63,6 +64,7 @@ public class looping {
         List<Integer> listage = empout.stream().map(employee::getAge).collect(Collectors.toList());
 
         System.out.println("===== age ==== " + listage);
+
         ///////////////////////////////////////////////
 
         ObjectMapper mapper = new ObjectMapper();
@@ -76,7 +78,7 @@ public class looping {
 
         JSONArray jarray = new JSONArray(str);
 
-        List<mapemployee> emp = new ArrayList<>();
+        Collection<mapemployee> emp = new ArrayList<>();
 
         for (int i = 0; i < jarray.length(); i++) {
 
@@ -91,7 +93,18 @@ public class looping {
 
         }
 
-        System.out.println(emp);
+        System.out.println("usingcollection==========" + emp);
+
+        empout.forEach((ss) -> {
+
+            mapemployee mapemps = new mapemployee();
+            mapemps.setName(ss.getFirstname());
+
+            emp.add(mapemps);
+        });
+        System.out.println("====***======" + emp);
 
     }
+
+
 }

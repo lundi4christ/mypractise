@@ -65,7 +65,7 @@ public class dlist {
         map.put("luke", 1 + map.getOrDefault("luke", 5));
 
         if(map.containsKey("jane")){
-            System.out.println(map.entrySet());
+            System.out.println("mapmapmapmapmap" + map.entrySet());
         }
 
         map.forEach((k, v) -> System.out.printf("%s %s%n", k, v));
