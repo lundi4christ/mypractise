@@ -73,12 +73,56 @@ public class looping {
             System.out.println(empout);
             System.out.println(str);
 
+        ///////////////////////form another json without using pojo using JSON///////////////////
+        String formj = mapper.writeValueAsString(empout);
+
+        JSONArray inputarray = new JSONArray(formj);
+
+        JSONArray outputarray = new JSONArray();
+
+        for (int i = 0; i < inputarray.length(); i++){
+
+            JSONObject getinputarray = inputarray.getJSONObject(i);
+
+            JSONObject newjson = new JSONObject();
+            newjson.put("dname", getinputarray.getString("firstname"));
+            newjson.put("notify", getinputarray.getString("email"));
+            newjson.put("agess", getinputarray.getInt("age"));
+
+            outputarray.put(newjson);
+        }
+
+        String output = outputarray.toString();
+
+        System.out.println("yyyyyyyyyyyyyyyyy " + output);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
 
         //mapping mapemployee to employee
 
         JSONArray jarray = new JSONArray(str);
 
-        Collection<mapemployee> emp = new ArrayList<>();
+        List<String> strr = new ArrayList<>();
+        strr.add(jarray.getString(2));
+        strr.add(jarray.getString(1));
+        System.out.println("trrrrrr" + strr);
+
+        List<mapemployee> emp = new ArrayList<>();
+
+        empout.forEach((t) -> {
+
+            mapemployee mapemp2 = new mapemployee();
+
+            mapemp2.setMail(t.getEmail());
+            //t.setMail(mapemp2.getMail());
+           //empout.add(mapemp2);
+
+            System.out.println("ppppppppppppppp " + mapemp2);
+
+        });
+
+
 
         for (int i = 0; i < jarray.length(); i++) {
 
@@ -105,6 +149,4 @@ public class looping {
         System.out.println("====***======" + emp);
 
     }
-
-
 }
