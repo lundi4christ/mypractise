@@ -88,6 +88,7 @@ public class looping {
             newjson.put("dname", getinputarray.getString("firstname"));
             newjson.put("notify", getinputarray.getString("email"));
             newjson.put("agess", getinputarray.getInt("age"));
+            newjson.put("newone", "new");
 
             outputarray.put(newjson);
         }
