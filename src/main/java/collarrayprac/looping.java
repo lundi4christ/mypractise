@@ -8,15 +8,109 @@ import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class looping {
 
     public static void main (String[] args) throws JsonProcessingException, JSONException {
+
+        List<String> datas = new ArrayList<>();
+        datas.add("ab");
+        datas.add("ba");
+        datas.add("cd");
+        datas.add("dc");
+        System.out.println(datas);
+
+        for(int a = 0; a<datas.size(); a++){
+
+            System.out.println(datas.get(a));
+        }
+
+        for(String b : datas){
+
+            System.out.println(b);
+        }
+
+        for(Iterator itner = datas.iterator();
+            itner.hasNext();){
+            String itner2 = itner.next().toString();
+            System.out.println("===ggggggggggg===" + itner2);
+
+        }
+
+        Iterator itner = datas.iterator();
+        while(itner.hasNext()){
+
+            String str = (String) itner.next();
+
+                System.out.println("wwwwwwwwwwwww " + str);
+        }
+
+        datas.forEach(s -> System.out.println("rrrrrrrrrrr " + s));
+
+        List<String> str1 = datas.stream().filter(a -> a.contains("b")).collect(Collectors.toList());
+        System.out.println("qqqqqqqqqqqqq " + str1);
+
+        List<employee> emps = new ArrayList<>();
+        emps.add(new employee("mark", "luke", 25, "mark@gmail.com"));
+        emps.add(new employee("mary", "jimmy", 30, "mary@gmail.com"));
+        emps.add(new employee("glory", "james", 35, "glory@gmail.com"));
+
+        System.out.println("emps-emps-emps ==== " + emps);
+        //to filter
+        List<employee> emps2 = emps.stream().filter(a -> a.getAge() < 35).collect(Collectors.toList());
+        System.out.println("new emps===== " + emps2);
+
+        //filter and sort
+        List<employee> emps3 = emps.stream().filter(b -> b.getLastname().contains("j")).collect(Collectors.toList());
+        System.out.println("new new emps ==== " + emps3);
+
+        Collections.sort(emps3, (o1, o2) -> o1.getAge() - o2.getAge());
+        System.out.println("this is sorted ======= " + emps3);
+
+        Collections.sort(emps3, (o1, o2) -> o1.getLastname().compareTo(o2.getLastname()));
+        System.out.println("another sorted ********" + emps3);
+
+        //linked list
+        LinkedList<String>  data = new LinkedList<>();
+        data.add("orange");
+        data.add("mango");
+        System.out.println("eeeeeee" + data);
+        //adding element at specific location
+        data.add(1, "gwava");
+        System.out.println("after adding gwava =-= " + data);
+        //adding element at the begining of the list
+        data.addFirst("apple");
+        System.out.println("at the begining *** " + data);
+        //adding element at the end of the list
+        data.addLast("berry");
+        System.out.println("at the end of the list == " + data);
+
+        data.forEach(t -> System.out.println("qqqqqqqqqqqqqqqqqqqqqqqqqq " + t));
+
+        Iterator<String> iter = data.iterator();
+        while(iter.hasNext()){
+            String getIter = iter.next();
+            System.out.println("000000000000000 " + getIter);
+        }
+
+        for(int a = 0; a<data.size(); a++){
+            System.out.println("111111111111 " + data.get(a));
+        }
+        //get element at specific index
+        String getlist = data.get(2);
+        System.out.println("get at index == " + getlist);
+        //get element at first and last
+        String getlist2 = data.getFirst();
+        String getlist3 = data.getLast();
+        System.out.println("first element is == " + getlist2 + " - last elmeent is == " + getlist3);
+        //remove first, last and element at specific index
+        data.removeFirst();
+        data.removeLast();
+        data.remove(1);
+        System.out.println("removed==== " + data);
+
 
         Double d1 = 0.0024;
         Double d2 = 0.00;
@@ -150,4 +244,6 @@ public class looping {
         System.out.println("====***======" + emp);
 
     }
+
+
 }
