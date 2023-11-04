@@ -73,6 +73,9 @@ public class looping {
         System.out.println("another sorted ********" + emps3);
 
         //linked list
+        LinkedList<employee> linemp = new LinkedList<>();
+        linemp.add(new employee("chris", "tony", 50, "chris@gmail.com"));
+
         LinkedList<String>  data = new LinkedList<>();
         data.add("orange");
         data.add("mango");
