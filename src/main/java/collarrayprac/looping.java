@@ -287,6 +287,7 @@ public class looping {
 
     }
 
+    //UTIL CLASS
     public static Object useforIteration(Iterator x){
 
         while(x.hasNext()){
