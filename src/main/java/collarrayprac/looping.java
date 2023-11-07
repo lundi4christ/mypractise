@@ -2,8 +2,6 @@ package collarrayprac;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import jsonBindings3.Util;
 import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
@@ -113,6 +111,47 @@ public class looping {
         data.removeLast();
         data.remove(1);
         System.out.println("removed==== " + data);
+
+        //Set
+        Set<employee> strset = new HashSet<>();
+        strset.add(new employee("luke", "mark", 30, "luke@gmail.com"));
+        strset.add(new employee("lukes", "mark", 30, "luke@gmail.com"));
+        strset.add(new employee("tony", "jones", 35, "tony@gmail.com"));
+        System.out.println("using set ==== " + strset);
+
+        List<employee> gets = strset.stream().filter(s -> s.getFirstname().contains("ke")).collect(Collectors.toList());
+        System.out.println("pppppppppppp " + gets);
+
+        Set<Integer> numbers = new HashSet<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+
+        Set<Integer> evennumber = new HashSet<>();
+        evennumber.add(2);
+        evennumber.add(4);
+
+        numbers.removeAll(evennumber);
+        System.out.println("wwwwwwwwwwwwwwwwww  " + numbers);
+
+        numbers.forEach(a -> System.out.println("using foreach " + a));
+
+        numbers.stream().forEach(s -> System.out.println(s));
+
+        for(int num : numbers){
+            System.out.println("enhance for loop " + num);
+        }
+//================================================================================================================
+        Iterator<Integer> itt = numbers.iterator();
+        while(itt.hasNext()){
+            int a = itt.next();
+            System.out.println("using Iterator " + a);
+        }
+
+        useforIteration(numbers.iterator());
+        //System.out.println("tryingtrying==== " + sstr);
 
 
         Double d1 = 0.0024;
@@ -248,5 +287,14 @@ public class looping {
 
     }
 
+    public static Object useforIteration(Iterator x){
+
+        while(x.hasNext()){
+           Object a = x.next();
+           // System.out.println("tryingtrying====== " + a);
+            return a.toString();
+        }
+        return null;
+    }
 
 }
