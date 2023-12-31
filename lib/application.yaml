@@ -9,9 +9,9 @@ spec:
   source:
     repoURL: https://github.com/lundi4christ/mypractise.git
     targetRevision: HEAD
-    path: mypractise
+    path: lib
   destination:
-    server: https//kubernetes.default.svc
+    server: https://kubernetes.default.svc
     namespace: myapp
     
   syncPolicy:
