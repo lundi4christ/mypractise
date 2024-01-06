@@ -13,6 +13,8 @@ public class looping {
 
     public static void main (String[] args) throws JsonProcessingException, JSONException {
 
+        //java collection
+
         List<String> datas = new ArrayList<>();
         datas.add("ab");
         datas.add("ba");
