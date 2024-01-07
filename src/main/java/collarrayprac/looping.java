@@ -36,7 +36,6 @@ public class looping {
             itner.hasNext();){
             String itner2 = itner.next().toString();
             System.out.println("===ggggggggggg===" + itner2);
-
         }
 
         Iterator itner = datas.iterator();
@@ -138,7 +137,7 @@ public class looping {
         numbers.removeAll(evennumber);
         System.out.println("wwwwwwwwwwwwwwwwww  " + numbers);
 
-        numbers.forEach(a -> System.out.println("using foreach " + a));
+        numbers.forEach(a -> System.out.println("using foreach for looping " + a));
 
         numbers.stream().forEach(s -> System.out.println(s));
 
