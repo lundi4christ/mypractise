@@ -23,6 +23,7 @@ public class jsonbuild {
             JSONArray jsonArray = jsonObject.getJSONArray("postings");
 
             String date = null;
+            String txnCode = null;
 
             JSONArray jsonArray1 = new JSONArray();
 
@@ -42,6 +43,7 @@ public class jsonbuild {
                 json.put("serialNumber", getArray.getString("serialNo"));
 
                 date = getArray.getString("valueDate");
+                txnCode = getArray.getString("txnCode");
                 jsonArray1.put(json);
             }
             //System.out.println(jsonArray1);
@@ -49,7 +51,7 @@ public class jsonbuild {
 
             JSONObject newobj = new JSONObject();
             newobj.put("reqId", jsonObject.getString("txnRef"));
-            newobj.put("tranSubType", "BI");
+            newobj.put("tranSubType", txnCode);
             newobj.put("valueDate", date);
             newobj.put("tranEntries", jsonArray1);
             newobj.put("overridePND", false);
